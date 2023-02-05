@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Cairo', sans-serif;
+}
+input {
+  border: none;
+  cursor: default;
+}
+input[type="text"]:focus {
+  outline: none;
+  cursor: auto;
+}
+.add {
+  bottom: 6%;
+  right: 5%;
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  background-color: #002c2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.add::before {
+  content: '';
+  transition: 0.3s ease-in;
+}
+.add:hover {
+  background-color: #001010;
+}
+.add:hover::before {
+  content: "Add new list";
+  color: #001010;
+  position: absolute;
+  left: 31%;
+  bottom: 114%;
+  transform: translateX(-50%);
+  width: 92px;
+  background-color: #eee;
+  padding: 5px;
+}
+.add i {
+  color: white;
+  transform: scale(3);
+}
+@media (max-width: 767px) {
+  .add i {
+    transform: scale(2);
+  }
+}
+.lists {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px,1fr));
+  gap: 10px;
+}
+@media (max-width: 767px) {
+  .lists {
+    grid-template-columns: 0;
+    grid-template-rows: repeat(2, 1fr)
+  }
+}
+.list {
+  display: flex;
+  padding: 10px 15px;
+  background-color: #EAE2B7;
+  margin-top: 5px;
+  margin-left: 5px;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: fit-content;
+  height: fit-content;
+}
+.list .tasks {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.list .header {
+  flex: 1;
+  font-weight: bold;
+  font-size: large;
+  height: 23px;
+}
+.list .task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.list .task .check {
+  width: 23px;
+  height: 23px;
+  background-color: white;
+  border: 1px solid #003049;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.list .rem {
+  background-color: transparent;
+  font-weight: bold;
+  padding: 2px;
+  cursor: pointer;
+  border: none;
+}
+.list .rem img {
+  width: 15px;
+}
+.list .task input {
+  background-color: inherit;
+  color: black;
+}
+@media (max-width: 767px) {
+  .list .task input {
+    width: 150px;
+  }
+}
+.list .tasks button {
+  background-color: #ffb600;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  flex: 100%;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.list .task button:hover {
+  background-color: #ff9e00;
+}
+.done {
+  background-color: #2a9d8f !important; 
+}
